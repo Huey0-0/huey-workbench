@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#203b32"><meta name="description" content="Huey 的个人工作台，清晰管理审核项目、每日待办和常用资料。">
+<title>Huey 的工作台 · 有条不紊，自在推进</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='12' fill='%232a5546'/%3E%3Cpath d='M12 10v20m16-20v20M12 20h16' stroke='%23eef2df' stroke-width='4'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+</head><body>
+<div class="app-shell">
+<aside class="sidebar" id="sidebar">
+<a href="#overview" class="brand"><span class="brand-mark">h<span>·</span></span><span>有序<span class="brand-en">HUEY'S WORKSPACE</span></span></a>
+<div class="workspace-label">个人工作空间 <span>LOCAL DATA</span></div>
+<nav aria-label="主导航">
+<button class="nav-item active" data-view="overview"><span data-icon="grid"></span>工作概览</button>
+<button class="nav-item" data-view="projects"><span data-icon="folder"></span>审核项目<span class="nav-count" id="navProjects">0</span></button>
+<button class="nav-item" data-view="tasks"><span data-icon="check"></span>待办事项<span class="nav-count" id="navTasks">0</span></button>
+<button class="nav-item" data-view="resources"><span data-icon="book"></span>常用资料</button>
+</nav>
+<div class="sidebar-note"><span class="little-spark">✳</span><p>把复杂的工作，<br>拆成清晰的每一步。</p><span>FOCUS ON WHAT MATTERS.</span></div>
+<div class="sidebar-bottom"><button class="nav-item" data-view="settings"><span data-icon="settings"></span>数据与设置</button><div class="profile"><div class="avatar">H</div><div><strong>Huey</strong><span>我的个人工作台</span></div><span class="profile-dot"></span></div></div>
+</aside>
+<div class="main-shell">
+<header class="topbar"><button class="icon-button mobile-menu" id="mobileMenu" aria-label="打开导航" aria-expanded="false"><span data-icon="menu"></span></button><div class="breadcrumb">我的工作空间<span>/</span><strong id="breadcrumbTitle">工作概览</strong></div><div class="topbar-actions"><label class="search-box"><span data-icon="search"></span><input id="searchInput" type="search" aria-label="搜索工作台" placeholder="搜索项目、待办、资料…"><kbd>/</kbd></label><span class="private-label"><span data-icon="folder"></span>本机数据</span><span class="small-avatar">H</span></div></header>
+<main id="main" tabindex="-1"></main>
+<footer><span><i class="save-dot"></i><span id="saveStatus">数据保存在此浏览器</span></span><button data-view="settings">备份与迁移 ↗</button></footer>
+</div></div>
+<dialog id="editor"><form id="editorForm"><div class="dialog-top"><div><span class="eyebrow">YOUR WORKSPACE</span><h2 id="dialogTitle"></h2></div><button type="button" class="icon-button" id="closeEditor" aria-label="关闭弹窗">×</button></div><div id="editorFields"></div><p id="formError" class="form-error" role="alert"></p><div class="dialog-actions"><button type="button" class="btn secondary" id="cancelEditor">取消</button><button type="submit" class="btn primary">保存</button></div></form></dialog>
+<dialog id="confirmDialog"><div class="dialog-top"><h2 id="confirmTitle">确认操作</h2></div><p id="confirmMessage"></p><div class="dialog-actions"><button class="btn secondary" id="confirmCancel">取消</button><button class="btn primary" id="confirmOk">确认</button></div></dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div><input type="file" id="importInput" accept="application/json,.json" hidden>
+<script src="app.js" defer></script>
+</body></html>
+
